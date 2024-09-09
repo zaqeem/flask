@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.email.label }}
+        {{ form.email }}
+        {% if form.email.errors %}
+        {% for error in form.email.errors %}
+        <div style="color: red;">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        {{ form.password.label }}
+        {{ form.password }}
+        {% if form.password.errors %}
+        {% for error in form.password.errors %}
+        <div style="color:red;">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <div>
+        {{ form.remember_me }}
+        {{ form.remember_me.label }}
+    </div>
+    <br>
+    <div>{{ form.submit() }}</div>
+    <br>
+    <div>
+        <p>Not registered <a href="{{'signup'}}">Sign Up</a></p>
+        <p>Redirect to homepage <a href="{{'home'}}">Home</a></p </div>
+</form>
+{% endblock content %}
